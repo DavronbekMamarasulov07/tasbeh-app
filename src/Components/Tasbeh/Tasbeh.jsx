@@ -7,6 +7,7 @@ import audio from "../../audio/output.mp3";
 const Tasbeh = () => {
     const [count, setCount] = useState(0);
     const [selectedValue, setSelectedValue] = useState(33); 
+    const [countLoop, setCountLoop] = useState(0);
     const [audioObj] = useState(new Audio(audio));
     const [audioPlaying, setAudioPlaying] = useState(false);
 
@@ -40,7 +41,7 @@ const Tasbeh = () => {
 
 
     useEffect(() => {
-        if (count === 33 || count === 66 || count === 99) {
+        if (count === selectedValue) {
             audioObj.play();
             setAudioPlaying(true);
             setCount(1)
@@ -53,6 +54,12 @@ const Tasbeh = () => {
             audioObj.currentTime = 0;
         };
     }, [audioObj]);
+
+    useEffect(() => {
+        if(count % selectedValue === 0 && count !== 0){
+            setCountLoop(countLoop + 1)
+        }
+    }, [count])
 
     return (
         <div>
@@ -68,7 +75,7 @@ const Tasbeh = () => {
                             <button onClick={resetCount} type='button' className='form-clear-btn'>Clear</button>
                         </div>
                         <div className="count-info">
-                            <strong>{count}</strong> / <strong>{selectedValue}</strong>
+                            <strong>{countLoop}</strong> / <strong>{selectedValue}</strong>
                         </div>
                         <h2 className='form-count'>{count}</h2>
                         <div className="form-btn-item-row">
