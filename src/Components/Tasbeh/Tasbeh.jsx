@@ -10,6 +10,7 @@ const Tasbeh = () => {
     const [audioObj] = useState(new Audio(audio));
     const [audioPlaying, setAudioPlaying] = useState(false);
 
+
     const handleSelectChange = (e) => {
         setSelectedValue(parseInt(e.target.value));
         setCount(0); 
@@ -17,7 +18,7 @@ const Tasbeh = () => {
 
     const handleReproduction = (e) => {
         e.preventDefault();
-        if (count < selectedValue) {
+        if (count < 10000000) {
             setCount(count + 1);
         }
     }
@@ -36,10 +37,13 @@ const Tasbeh = () => {
         audioObj.currentTime = 0; 
     }
 
+
+
     useEffect(() => {
-        if (count  === 33 || count === 66 || count === 99) {
+        if (count === 33 && count === 66 && count === 99) {
             audioObj.play();
             setAudioPlaying(true);
+            setCount(1)
         }
     }, [count, audioObj, audioPlaying]);
 
