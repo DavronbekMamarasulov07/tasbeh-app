@@ -5,11 +5,11 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     backdrop-filter: blur(2px);
-    height: 100vh;
 }
 
 
 .tasbeh-content{
+    height: 100%;
     width: 100%;
     margin-top: 50px;
 }
