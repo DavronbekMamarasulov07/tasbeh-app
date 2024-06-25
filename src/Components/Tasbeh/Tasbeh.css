@@ -131,7 +131,7 @@ body{
 
 
     body{
-        background-image: url(../../images/masjid.jpg);
+        background-image: url("../../images/masjid.jpg");
         background-repeat: no-repeat;
     }
     

@@ -18,7 +18,7 @@ const Tasbeh = () => {
 
     const handleReproduction = (e) => {
         e.preventDefault();
-        if (count < 10000000) {
+        if (count < selectedValue) {
             setCount(count + 1);
         }
     }
