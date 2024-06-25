@@ -40,7 +40,7 @@ const Tasbeh = () => {
 
 
     useEffect(() => {
-        if (count === 33 && count === 66 && count === 99) {
+        if (count === 33 || count === 66 || count === 99) {
             audioObj.play();
             setAudioPlaying(true);
             setCount(1)
